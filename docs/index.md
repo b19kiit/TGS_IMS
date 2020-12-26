@@ -40,6 +40,7 @@ ____
 <need more planning>
 
 ## Data Base
+![ERD](https://b19kiit.github.io/TGS_IMS/images/update26th.PNG)
 
 ## Backend Drivers
 
