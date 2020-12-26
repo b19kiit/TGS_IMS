@@ -16,7 +16,7 @@
 
 > - `Member.added` This represents UNIX Appx. time in milliseconds, when the user's Membership was created
 
-**WareHouse:** It represents nodes with label `WareHouse`, This entity makes TGS_IMS a fully integrated suit, It is the pivote of relation between the Users, Inventories & Stores/Storages etc. It ensured essentional isolation of data between multiple parties.
+**WareHouse:** It represents nodes with label `WareHouse`. This entity makes TGS_IMS a fully integrated suit, It is the pivote of relation between the Users, Inventories, Items & Stores. It ensured essentional isolation of data between multiple parties.
 
 It Stores {name, type, location, location_tags}
 
@@ -24,17 +24,28 @@ It Stores {name, type, location, location_tags}
 
 > - `WareHouse.location_tags` Stores tags as Array of String for segregation of locations
 
-**Inventory:** This entity makes TGS_IMS a fully integrated suit, It is the pivote of relation between the Users, Inventories & Stores/Storages etc. It ensured essentional isolation of data between multiple parties.
+**Inventory:** It represents nodes with label `Inventory`. An Invenotry is a ***collection of Stored-Items***.
 
 It Stores {name, type, tags}
 
 > - `Inventory.type` Type the inventory, primaryly identifies the operational features required on the Inventory
 
-> - `Inventory.tags` Array of String, meant to segregation & searching of Inventories
+> - `Inventory.tags` Array of String, meant to segregation & searching of Inventories in the WareHouse.
 
-**Store:**
+**Store:** It represents nodes with label `Store`. A `Store` belongs to **a** `WareHouse`,
+it basically represents a collection of cells (Smallest partition of physical storage space).
 
-**Unit:**
+It Stores {name, location, location_tags}
+
+> - `Store.location` It stores location as String, a location which provides more precise location represntion the Store's Warehouse.
+
+> - `Store.location_tags` Array of String, meant to segregation & searching of location of the Stores in a WareHouse.
+
+**Unit:** It represents nodes with label `Unit`, and stores units for qunatative reffrences or qunatative representation of Properties.
+A `Unit` will belong to **a** `WareHouse`,
+however all `WareHouse` will have same some `Unit`(s) and their conversion funtions pre-alloted, for more swift setup of a WareHouse.
+
+It Stores {name, description}
 
 **Item:**
 
