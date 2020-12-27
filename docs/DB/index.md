@@ -61,7 +61,7 @@ For Example: If we have an inventory and a store (which represents physical stor
 
 > - `Item.shelf_life` Time required by the item to get expired.
 
-**Cell** It represents nodes with label `Cell`. A cell is the smallest partition of physical storage space.
+**Cell:** It represents nodes with label `Cell`. A cell is the smallest partition of physical storage space.
 A `cell` must belong to exactly one Node `Store`.
 
 A `cells` can be related to `Item` via `Property` node. This will be essential in multiple scenarios, such as evaluating the number of items that can be stored in the cell or check the health of a cell for items stored in them in realtime.
@@ -73,4 +73,4 @@ A `cells` can be related to `Item` via `Property` node. This will be essential i
 > - `Cell.location_tags` This is an Array of strings that allows segregation & perhaps search with queries of the physical location.
 
 
-**Property**
+**Property:**
