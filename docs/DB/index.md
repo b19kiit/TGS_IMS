@@ -33,22 +33,44 @@ It Stores {name, type, tags}
 > - `Inventory.tags` Array of String, meant to segregation & searching of Inventories in the WareHouse.
 
 **Store:** It represents nodes with label `Store`. A `Store` belongs to **a** `WareHouse`,
-it basically represents a collection of cells (Smallest partition of physical storage space).
+it basically represents a collection of cells (The smallest partition of physical storage space).
 
 It Stores {name, location, location_tags}
 
-> - `Store.location` It stores location as String, a location which provides more precise location represntion the Store's Warehouse.
+> - `Store.location` It stores location as String, a location that provides a more precise location representation of the Store's Warehouse.
 
-> - `Store.location_tags` Array of String, meant to segregation & searching of location of the Stores in a WareHouse.
+> - `Store.location_tags` Array of String, meant to segregation & searching of the location of the Stores in a WareHouse.
 
-**Unit:** It represents nodes with label `Unit`, and stores units for qunatative reffrences or qunatative representation of Properties.
+**Unit:** It represents nodes with label `Unit`. Stores units for quantitative references or quantitative representation of Properties.
 A `Unit` will belong to **a** `WareHouse`,
-however all `WareHouse` will have same some `Unit`(s) and their conversion funtions pre-alloted, for more swift setup of a WareHouse.
+however, all `WareHouse` will have the same some `Unit`(s) and their conversion functions pre-allotted, for the more swift setup of a WareHouse.
 
 It Stores {name, description}
 
-**Item:**
+**Item:** It represents nodes with the label `Item`. Stores details & description of items that can be added to `Inventory`, `Store`, or both.
 
-**Cell**
+For Example: If we have an inventory and a store (which represents physical storage) to store a Physical Item 'Li+ Battery', for this item we will add a Node with label `Item` with its {name:'Li+Battery', type:'finished_supply', quantity:0, ...so on}
+
+> - `Item.name` Name of the Item
+
+> - `Item.type` Type of the item being stored
+
+> - `Item.quantity` Total quantity items present in cells of all Store and all inventories.
+
+> - `Item.unknown_quantity` Quantity of extra items, which are not registered to any storage cell, and these items may or may not be present in some inventory.
+
+> - `Item.shelf_life` Time required by the item to get expired.
+
+**Cell** It represents nodes with label `Cell`. A cell is the smallest partition of physical storage space.
+A `cell` must belong to exactly one Node `Store`.
+
+A `cells` can be related to `Item` via `Property` node. This will be essential in multiple scenarios, such as evaluating the number of items that can be stored in the cell or check the health of a cell for items stored in them in realtime.
+
+> - `Cell.type` It defined the type of a cell, such as 'gas_cylinder', 'shelf', 'refrigerator' etc
+
+> - `Cell.location` This string describes the physical location of the represented storage unit.
+
+> - `Cell.location_tags` This is an Array of strings that allows segregation & perhaps search with queries of the physical location.
+
 
 **Property**
