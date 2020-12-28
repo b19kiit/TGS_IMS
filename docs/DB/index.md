@@ -108,3 +108,29 @@ It stores {quantity, expires, added_on, engaged, custom_tags}
 
 > - `ItemStored.custom_tags` Array of strings if required.
 
+**BillOfMaterial:**
+
+**Cost:**
+
+**TransferProtocol:**
+
+**HsnRegister:**
+
+### Relations
+
+**MEMBERSHIPS:** Connects A `User` node with multiple `Member` nodes.
+Representing a users access to a `Warehouse` via a `Member` node.
+
+**MEMBERS:** Connects A `Warehouse` node with one or more `Member` nodes. (All Warehouse must have atleast one Member as {'type':'admin'})
+Representing `Member` nodes related to a `Warehouse`.
+
+Members of a Warehouse, with atleast one admin.
+
+**INVENTORIES:** Connects A `Warehouse` node with multiple `Inventory` nodes.
+Representing `Inventory` nodes related to a `Warehouse`.
+
+Invetories in a Warehouse.
+
+**STORES:**
+
+**UNITS:**
