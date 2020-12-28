@@ -179,10 +179,14 @@ Representing `Inventory` nodes related to a `Warehouse`.
 
 <br>
 
-**STORED_IN:**
+**STORED_IN:** Connects a `StoredItem` to a `Cell` node.
+
+> Represents where a stored Item is keeps physically
 
 
-**UNIT_OF_MEASURE:**
+**UNIT_OF_MEASURE:** A relation with an `Unit` node, for representing some measurement.
+
+**UNITS_OF(CONCEPTUAL):** This represents a measurement using the `Unit` nodes present in the `Warehouse`. It stores {value:Number<Float>}
 
 
 
