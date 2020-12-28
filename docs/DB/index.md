@@ -132,50 +132,50 @@ Representing a user's access to a `Warehouse` via a `Member` node.
 **MEMBERS:** Connects A `Warehouse` node with one or more `Member` nodes. (All Warehouse must have at least one Member as {'type':'admin'})
 Representing `Member` nodes related to a `Warehouse`.
 
-Members of a Warehouse, with at least one admin.
+> Members of a Warehouse, with at least one admin.
 
 <br>
 
 **INVENTORIES:** Connects A `Warehouse` node with multiple `Inventory` nodes.
 Representing `Inventory` nodes related to a `Warehouse`.
 
-Inventories in a Warehouse.
+> Inventories in a Warehouse.
 
 <br>
 
 **STORES:** Connects A `Warehouse` node with multiple `Store` nodes.
 
-Stores in a Warehouse.
+> Stores in a Warehouse.
 
 <br>
 
 **UNITS:** Connects A `Warehouse` node with multiple `Unit` nodes.
 
-Units in a Warehouse.
+> Units in a Warehouse.
 
 <br>
 
 **ITEMS:** Connects A `Warehouse` node with multiple `Item` nodes.
 
-Items registered in a Warehouse
+> Items registered in a Warehouse
 
 <br>
 
 **CELLS:** Connects A `Store` node with multiple `Item` nodes.
 
-Cells present in a store.
+> Cells present in a store.
 
 <br>
 
 **STORED_ITEMS:** Connects A `Inventory` node with multiple `ItemStored` nodes.
 
-Items present in an Inventory
+> Items present in an Inventory
 
 <br>
 
 **ITEM_STOREDS:** Connects A `Item` node with multiple `ItemStored` nodes.
 
-Items which have been stored physcially or have been added to some inventory.
+> Items which have been stored physcially or have been added to some inventory.
 
 <br>
 
