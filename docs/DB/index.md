@@ -81,6 +81,8 @@ It Stores {type, location, location_tags}
 **Property:** It represents nodes with label `Property`.
 This node stores quantitative-quality & other characteristics, which are quite a pivotal relating 'Item' nodes & `Cell` Nodes, for performing analytical & real-time operations with the data.
 
+And each `Property` node has one & only one `ITEM_PROPERTIES` or `CELL_PROPERTIES` Relation. *A property node can not be shared*
+
 It stores {name, type, value, min, max, normal}
 
 > - `Property.name` Name of the quality, must be unique for a related cell or a related Item.
@@ -183,12 +185,27 @@ Representing `Inventory` nodes related to a `Warehouse`.
 
 > Represents where a stored Item is keeps physically
 
+<br>
 
 **UNIT_OF_MEASURE:** A relation with an `Unit` node, for representing some measurement.
 
 **UNITS_OF(CONCEPTUAL):** This represents a measurement using the `Unit` nodes present in the `Warehouse`. It stores {value:Number<Float>}
 
+<br>
 
+**ITEM_PROPERTIES:** Connects a `Item` node with a `Property` nodes. And each `Property` node has one & only one `ITEM_PROPERTIES` or `CELL_PROPERTIES` Relation.
+
+<br>
+
+**CELL_PROPERTIES** Connects a `Cell` node with a `Property` nodes. And each `Property` node has one & only one `ITEM_PROPERTIES` or `CELL_PROPERTIES` Relation.
+
+<br>
+
+**CONVERSION_FUNCTIONS** It Connects a `Unit` node to another `Unit` node. It stores {formula:String<JS VM executable code>}
+
+These relations store the procedures for conversion of value for one Unit to another one.
+
+<br>
 
 
 
