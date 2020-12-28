@@ -51,6 +51,8 @@ It Stores {name, description}
 
 For Example: If we have an inventory and a store (which represents physical storage) to store a Physical Item 'Li+ Battery', for this item we will add a Node with label `Item` with its {name:'Li+Battery', type:'finished_supply', quantity:0, ...so on}
 
+It Stores {name, type, quantity, known_quantity, unknown_quantity, shelf_life}
+
 > - `Item.name` Name of the Item
 
 > - `Item.type` Type of the item being stored
@@ -66,11 +68,43 @@ A `cell` must belong to exactly one Node `Store`.
 
 A `cells` can be related to `Item` via `Property` node. This will be essential in multiple scenarios, such as evaluating the number of items that can be stored in the cell or check the health of a cell for items stored in them in realtime.
 
+It Stores {type, location, location_tags}
+
 > - `Cell.type` It defined the type of a cell, such as 'gas_cylinder', 'shelf', 'refrigerator' etc
 
 > - `Cell.location` This string describes the physical location of the represented storage unit.
 
 > - `Cell.location_tags` This is an Array of strings that allows segregation & perhaps search with queries of the physical location.
 
+**Property:** It represents nodes with label `Property`.
+This node stores quantitative-quality & other charecteristics, which are quite pivotal relating 'Item' nodes & `Cell` Nodes, for performing analitical & realitime operations with the data.
 
-**Property:**
+It stores {name, type, value, min, max, normal}
+
+> - `Property.name` Name of the quality, must be unique for a related cell or a related Item.
+
+> - `Property.type` 'quality'| 'range'| 'safety_range'...
+
+> - `Property.value` This can be a string or a Number, depending on the Property. This field is meant for live values of Cell.
+
+> - `Property.min`(optional) This must be a number, which defines lower boundary for `Property.value`.
+
+> - `Property.max`(optional) This must be a number, which defines upper boundary for `Property.value`.
+
+> - `Property.normal`(optional) This can be a string or a Number, for representing desirable `Property.value`.
+
+**ItemStored:** It represents nodes with label `ItemStored`.
+This node stores entry for a item added an Inventory and/or physical added to a cell of store.
+
+It stores {quantity, expires, added_on, engaged, custom_tags}
+
+> - `ItemStored.quantity` Numeric value to represent quantity, if it means anything to Item stored. *Default value is 1*
+
+> - `ItemStored.expires` UNIX_AXP time at which the stored item will expire
+
+> - `ItemStored.added_on` UNIX_AXP time, when the stored_item expires
+
+> - `ItemStored.engaged` IF the item is enageged, it can not be used for any other puropse.
+
+> - `ItemStored.custom_tags` Array of strings if required.
+
