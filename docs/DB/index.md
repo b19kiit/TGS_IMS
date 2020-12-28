@@ -4,6 +4,8 @@
 
 ### Entities (Node Representation)
 
+<hr>
+
 **User:** It represents nodes with label `User`, and stores `{ username, _id }` of the users in the system. 
 
 > - `User._id` the unique ID used to represent an User
@@ -77,7 +79,7 @@ It Stores {type, location, location_tags}
 > - `Cell.location_tags` This is an Array of strings that allows segregation & perhaps search with queries of the physical location.
 
 **Property:** It represents nodes with label `Property`.
-This node stores quantitative-quality & other charecteristics, which are quite pivotal relating 'Item' nodes & `Cell` Nodes, for performing analitical & realitime operations with the data.
+This node stores quantitative-quality & other characteristics, which are quite a pivotal relating 'Item' nodes & `Cell` Nodes, for performing analytical & real-time operations with the data.
 
 It stores {name, type, value, min, max, normal}
 
@@ -87,14 +89,14 @@ It stores {name, type, value, min, max, normal}
 
 > - `Property.value` This can be a string or a Number, depending on the Property. This field is meant for live values of Cell.
 
-> - `Property.min`(optional) This must be a number, which defines lower boundary for `Property.value`.
+> - `Property.min`(optional) This must be a number, which defines the lower boundary for `Property.value`.
 
 > - `Property.max`(optional) This must be a number, which defines upper boundary for `Property.value`.
 
 > - `Property.normal`(optional) This can be a string or a Number, for representing desirable `Property.value`.
 
 **ItemStored:** It represents nodes with label `ItemStored`.
-This node stores entry for a item added an Inventory and/or physical added to a cell of store.
+This node stores entry for an item added an Inventory and/or physically added to a cell of a store.
 
 It stores {quantity, expires, added_on, engaged, custom_tags}
 
@@ -104,7 +106,7 @@ It stores {quantity, expires, added_on, engaged, custom_tags}
 
 > - `ItemStored.added_on` UNIX_AXP time, when the stored_item expires
 
-> - `ItemStored.engaged` IF the item is enageged, it can not be used for any other puropse.
+> - `ItemStored.engaged` IF the item is engaged, it can not be used for any other purpose.
 
 > - `ItemStored.custom_tags` Array of strings if required.
 
@@ -116,21 +118,73 @@ It stores {quantity, expires, added_on, engaged, custom_tags}
 
 **HsnRegister:**
 
+<br>
+
 ### Relations
 
-**MEMBERSHIPS:** Connects A `User` node with multiple `Member` nodes.
-Representing a users access to a `Warehouse` via a `Member` node.
+<hr>
 
-**MEMBERS:** Connects A `Warehouse` node with one or more `Member` nodes. (All Warehouse must have atleast one Member as {'type':'admin'})
+**MEMBERSHIPS:** Connects A `User` node with multiple `Member` nodes.
+Representing a user's access to a `Warehouse` via a `Member` node.
+
+<br>
+
+**MEMBERS:** Connects A `Warehouse` node with one or more `Member` nodes. (All Warehouse must have at least one Member as {'type':'admin'})
 Representing `Member` nodes related to a `Warehouse`.
 
-Members of a Warehouse, with atleast one admin.
+Members of a Warehouse, with at least one admin.
+
+<br>
 
 **INVENTORIES:** Connects A `Warehouse` node with multiple `Inventory` nodes.
 Representing `Inventory` nodes related to a `Warehouse`.
 
-Invetories in a Warehouse.
+Inventories in a Warehouse.
 
-**STORES:**
+<br>
 
-**UNITS:**
+**STORES:** Connects A `Warehouse` node with multiple `Store` nodes.
+
+Stores in a Warehouse.
+
+<br>
+
+**UNITS:** Connects A `Warehouse` node with multiple `Unit` nodes.
+
+Units in a Warehouse.
+
+<br>
+
+**ITEMS:** Connects A `Warehouse` node with multiple `Item` nodes.
+
+Items registered in a Warehouse
+
+<br>
+
+**CELLS:** Connects A `Store` node with multiple `Item` nodes.
+
+Cells present in a store.
+
+<br>
+
+**STORED_ITEMS:** Connects A `Inventory` node with multiple `ItemStored` nodes.
+
+Items present in an Inventory
+
+<br>
+
+**ITEM_STOREDS:** Connects A `Item` node with multiple `ItemStored` nodes.
+
+Items which have been stored physcially or have been added to some inventory.
+
+<br>
+
+**STORED_IN:**
+
+
+**UNIT_OF_MEASURE:**
+
+
+
+
+
