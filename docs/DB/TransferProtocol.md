@@ -70,9 +70,10 @@ IDS unique items table ($ITEMS)
       "{total_cost}" : {
         "#expr" : {"#var" : "$IDS.$SUM.cost"}          // $IDS.$SUM.cost is sum of all items in the IDS table
       }
-      "{item_table}" : {"#table" :{
-          "{{Item Name}}": "$IDS.$ITEMS.name",         //name of specific items
-          "{{Worth}}": "$IDS.$ITEMS.cost"              //cost of specific items
+      "{item_table}" : {
+        "#table" :{
+          "{Item Name}": "$IDS.$ITEMS.name",         //name of specific items
+          "{Worth}": "$IDS.$ITEMS.cost"              //cost of specific items
         }
       }
     }
