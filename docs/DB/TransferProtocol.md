@@ -26,11 +26,13 @@ IDS selected items table
 | 3     | 1234567791  | 1        | Battery   | ElectricSolid  | 1000       | 999 | 1| 50| 50 |
  
 IDS SUM table ($SUM)
+
 | .quantity | .cost|
 |---|:---|
 | 230 | 11500|
 
 IDS unique items table ($ITEMS)
+
 |.name|.quantity|.cost|
 |---|:---|---|
 |Battery|230|11500|
