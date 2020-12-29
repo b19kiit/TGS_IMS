@@ -136,7 +136,7 @@ This node will prescribe operations such as 'filteration', 'identification of sp
 
 > - `TransferProtocol.protocol` JSON representation of the protocol algorithm.
 
-[More About TransferProtocol]()
+[More About TransferProtocol](./TransferProtocol)
 
 **Cost:**
 
