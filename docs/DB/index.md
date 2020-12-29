@@ -112,15 +112,39 @@ It stores {quantity, expires, added_on, engaged, custom_tags}
 
 > - `ItemStored.custom_tags` Array of strings if required.
 
-**BillOfMaterial:**
+**BillOfMaterial:** It represents nodes with lable `BillOfMaterial`.
+It stores the recipe for creating a Bill of items, using the Items present in the Warehouse.
+
+It stores {name, created_on, updated_on}
+
+> - `BillOfMaterial.name` Name as String for the BillOfMaterial
+
+> - `BillOfMaterial.created_on` UNIX_AXP time ms
+
+> - `BillOfMaterial.created_on` UNIX_AXP time ms
+
+**TransferProtocol:** It represents nodes with lable `TransferProtocol`.
+Every systematic transfer of Items from one Inventory to another, will follow a customized Protocol for Transfer.
+
+This node will prescribe operations such as 'filteration', 'identification of specific items', 'report generation' & 'chalan generation' etc.
+
+> - `TransferProtocol.name` Name as String for the TransferProtocol, default = name_of_inital_inventory + '_to_' + name_of_final_inventory
+
+> - `TransferProtocol.min_limit` Minimum number of Item required to follow this protocol
+
+> - `TransferProtocol.max_limit` Maximim number of Item allowed in this protocol
+
+> - `TransferProtocol.protocol` JSON representation of the protocol algorithm.
+
+[More About TransferProtocol]()
 
 **Cost:**
-
-**TransferProtocol:**
 
 **HsnRegister:**
 
 <br>
+
+<hr>
 
 ### Relations
 
@@ -197,15 +221,22 @@ Representing `Inventory` nodes related to a `Warehouse`.
 
 <br>
 
-**CELL_PROPERTIES** Connects a `Cell` node with a `Property` nodes. And each `Property` node has one & only one `ITEM_PROPERTIES` or `CELL_PROPERTIES` Relation.
+**CELL_PROPERTIES:** Connects a `Cell` node with a `Property` nodes. And each `Property` node has one & only one `ITEM_PROPERTIES` or `CELL_PROPERTIES` Relation.
 
 <br>
 
-**CONVERSION_FUNCTIONS** It Connects a `Unit` node to another `Unit` node. It stores {formula:String<JS VM executable code>}
+**CONVERSION_FUNCTIONS:** It Connects a `Unit` node to another `Unit` node. It stores {formula:String<JS VM executable code>}
 
 These relations store the procedures for conversion of value for one Unit to another one.
 
 <br>
 
+**TRANSFER_PROTOCOL:** It Connects a `Inventory` node miltiple `TransferProtocol` nodes.
 
+<br>
+
+**TRANSFER_TO:** It Connects a `TransferProtocol` node an `Inventory` node.
+It reprsents the final Inventory for the items being transfered.
+
+<br>
 
