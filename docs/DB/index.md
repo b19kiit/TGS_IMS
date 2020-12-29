@@ -138,9 +138,22 @@ This node will prescribe operations such as 'filteration', 'identification of sp
 
 [More About TransferProtocol](./TransferProtocol)
 
-**Cost:**
+**Cost:** It represents nodes with lable `Cost`.
+It is primarly meant to Store cost/pricing of the Items in the warehouse. Any `Item` in the warehouse can have 1 `Cost` atmost.
 
-**HsnRegister:**
+It stores {per_unit, tax_percent, extra_charges, extra_charges_per_unit}
+
+> - `Cost.per_unit` Cost of each unit of Item, to find total cost of a `ItemStored`, we have to multiply `ItemStored.quantity` with `Cost.per_unit`.
+
+> - `Cost.tax_percent` Tax on the item. where `100``%` = `Cost.per_unit`.
+
+> - `Cost.extra_charges` The extra charges which will be added to a minimum quanity of items, such as registration & transaction charges.
+
+> - `Cost.extra_charges_per_unit` Extra charges required per unit of the item. Such as packing charges or handling charges.
+
+
+**HsnRegister:** It represents nodes with lable `HsnRegister`. All items may have unique official 'hsn_number' number, which can be stored in this node.
+It can be useful in Billing, reporting and also identifing items which are diffrent in the Warehouse but are same officially.
 
 <br>
 
