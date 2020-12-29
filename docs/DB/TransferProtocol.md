@@ -72,8 +72,9 @@ IDS unique items table ($ITEMS)
       }
       "{item_table}" : {
         "#table" :{
-          "{Item Name}": "$IDS.$ITEMS.name",         //name of specific items
-          "{Worth}": "$IDS.$ITEMS.cost"              //cost of specific items
+          //'Item Name' & 'Worth' will be the header fields of the table
+          "Item Name": "$IDS.$ITEMS.name",         //name of specific items
+          "Worth": "$IDS.$ITEMS.cost"              //cost of specific items
         }
       }
     }
