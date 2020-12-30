@@ -13,3 +13,10 @@
 > - Create database with {name:"IMS", Password:<>, version:"4.1.3" or higher}
 
 - Disable required Firewalls
+
+- Add unique index to `User.user_id`
+
+```cypher
+CREATE CONSTRAINT unique_user_id
+ON (u:User) ASSERT u.user_id IS UNIQUE
+```
