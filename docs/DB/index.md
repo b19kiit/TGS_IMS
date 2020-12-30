@@ -1,6 +1,6 @@
 ## Data Base
 
-![ERD](https://b19kiit.github.io/TGS_IMS/images/update26th.PNG)
+![ERD](../images/update26th.PNG)
 
 ### Entities (Node Representation)
 
